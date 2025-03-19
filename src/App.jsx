@@ -1,21 +1,20 @@
-import { useReducer } from "react";
+// import { useLocalStorage } from "./components/useLocalStorage";
 import "./App.css";
-import { INCREMENT, DECREMENT, reducer } from "./redux/reducer";
+import { useState } from "./components/customUseState";
 
 function App() {
-  const [count, dispatch] = useReducer(reducer, { count: 0 });
-  console.log("printed");
+  // const [value, setValue] = useLocalStorage("k", "");
+  const [value, setValue] = useState("");
   return (
     <>
-      <h1>{count.count}</h1>
-      <div className="card">
-        <button onClick={() => dispatch({ type: INCREMENT })}>
-          Increment
-        </button>
-        <button onClick={() => dispatch({ type: DECREMENT })}>
-          Decrement
-        </button>
-      </div>
+      <h2>Custom hook : useLocalStorage</h2>
+      <input
+        type="text"
+        name=""
+        id=""
+        onChange={(e) => setValue(e.target.value)}
+        value={value}
+      />
     </>
   );
 }
